@@ -13,7 +13,7 @@ const App = props => {
     getAllToDo(setDoTo);
   }, []);
 
-  const baseURL = "https://nodeapis-cowvf4umm-sanlinhtike.vercel.app/";
+  const baseURL = "https://nodeapis-cowvf4umm-sanlinhtike.vercel.app";
   const getAllToDo = (setDoTo) => {
     axios
       .get(baseURL)
