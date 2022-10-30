@@ -25,6 +25,9 @@ const App = props => {
   };
 
   const addToDo = (text, setText, setDoTo) => {
+    if(text === "") {
+      return alert('Please Fill Your Data')
+    }
     axios
       .post(baseURL, { name: text })
       .then((data) => {
@@ -54,7 +57,8 @@ const App = props => {
   }
 
   const deleteToDo = (_id, setDoTo) => {
-    console.log(_id)
+    // console.log(_id)
+    confirm("Are you sure to delete!");
     axios
       .post(`${baseURL}/delete`, {_id} )
       .then((data) => {
