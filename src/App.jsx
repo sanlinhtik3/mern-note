@@ -72,6 +72,12 @@ const App = props => {
 
   };
 
+  const CancleBtn = () => {
+    setText("");
+    getAllToDo(setDoTo);
+    setIsUpdate(false);
+  }
+
   return (
     <div className="prose prose-slate max-w-none px-5 lg:px-60">
       <div className="container mx-auto mt-10">
@@ -83,17 +89,32 @@ const App = props => {
             value={text}
             onChange={(e) => setText(e.target.value)}
           />
+          {isUpdate && (
+            <button
+              onClick={CancleBtn}
+              className="border rounded-lg px-3"
+            >
+              Cancle
+            </button>
+          )}
           <button
             onClick={() =>
               isUpdate
                 ? updateToDo(toDoId, text, setText, setDoTo, setIsUpdate)
                 : addToDo(text, setText, setDoTo)
             }
-            className="bg-black text-white rounded-lg p-4"
+            className="bg-black text-white rounded-lg px-3"
           >
-            {isUpdate ? "Update" : <i className="fa-solid fa-cloud-arrow-up"></i>}
+            {isUpdate ? (
+              "Update"
+            ) : (
+              <i className="fa-solid fa-cloud-arrow-up"></i>
+            )}
           </button>
         </div>
+
+        {toDo.length === 0 && <h1 className=" text-center">There is no data</h1>}
+
         {toDo.map((item) => (
           <ToDo
             key={item._id}
