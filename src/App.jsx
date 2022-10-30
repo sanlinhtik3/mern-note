@@ -25,7 +25,7 @@ const App = props => {
   };
 
   const addToDo = (text, setText, setDoTo) => {
-    if(text === "") {
+    if (text === "") {
       return alert('တစ်ခုခုဖြည့်ဟ')
     }
     axios
@@ -58,14 +58,18 @@ const App = props => {
 
   const deleteToDo = (_id, setDoTo) => {
     // console.log(_id)
-    confirm("ရမ်းမဖျက်နဲ့ဟ!");
-    axios
-      .post(`${baseURL}/delete`, {_id} )
-      .then((data) => {
-        console.log(data);
-        getAllToDo(setDoTo);
-      })
-      .then((err) => err);
+    if (confirm("ရမ်းမဖျက်နဲ့ဟ!") === true) {
+      axios
+        .post(`${baseURL}/delete`, { _id })
+        .then((data) => {
+          console.log(data);
+          getAllToDo(setDoTo);
+        })
+        .then((err) => err);
+    } else {
+      alert("မဖျက်တော့ဘူးဘား ညေး");
+    }
+
   };
 
   return (
@@ -87,7 +91,7 @@ const App = props => {
             }
             className="bg-black text-white rounded-lg p-4"
           >
-            {isUpdate ? "Update" : "Add"}
+            {isUpdate ? "Update" : <i className="fa-solid fa-cloud-arrow-up"></i>}
           </button>
         </div>
         {toDo.map((item) => (
