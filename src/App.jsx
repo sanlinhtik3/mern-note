@@ -113,7 +113,7 @@ const App = props => {
           </button>
         </div>
 
-        {toDo.length === 0 && <h1 className=" text-center">There is no data</h1>}
+        {toDo.length === 0 && <h1 className=" text-center">There is no data!</h1>}
 
         {toDo.map((item) => (
           <ToDo
