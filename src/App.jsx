@@ -26,7 +26,7 @@ const App = props => {
 
   const addToDo = (text, setText, setDoTo) => {
     if(text === "") {
-      return alert('Please Fill Your Data')
+      return alert('တစ်ခုခုဖြည့်ဟ')
     }
     axios
       .post(baseURL, { name: text })
@@ -58,7 +58,7 @@ const App = props => {
 
   const deleteToDo = (_id, setDoTo) => {
     // console.log(_id)
-    confirm("Are you sure to delete!");
+    confirm("ရမ်းမဖျက်နဲ့ဟ!");
     axios
       .post(`${baseURL}/delete`, {_id} )
       .then((data) => {
