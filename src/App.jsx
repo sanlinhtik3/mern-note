@@ -65,7 +65,7 @@ const App = props => {
   };
 
   return (
-    <div className="prose prose-slate max-w-none px-60">
+    <div className="prose prose-slate max-w-none px-5 lg:px-60">
       <div className="container mx-auto mt-10">
         <div className="flex space-x-5 mb-5">
           <input
